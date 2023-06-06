@@ -75,8 +75,8 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter course ID: ");
 		String courseID = input.nextLine();
-		//Remove index from ArrayList of courses
 		
+		//Remove index from ArrayList of courses
 		for (int i = 0; i<crsMain.courseArrayList.size(); i++) {
 			course = crsMain.courseArrayList.get(i);
 			if (course.getCourseID().equals(courseID)) {
@@ -105,11 +105,14 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		System.out.print("4. Class location\n");
 		int choice = input.nextInt();
 		
+		// Iterate through each element in the courseArrayList
 		for (int i = 0; i<crsMain.courseArrayList.size(); i++) {
 			course = crsMain.courseArrayList.get(i);
 			courseIndex = crsMain.courseArrayList.indexOf(crsMain.courseArrayList.get(i));
 			
-			
+				  // Check the user's choice and perform the corresponding edit
+
+				// If choice is 1 and the course ID matches, prompt for new max amount of students
 				if (choice == 1 && courseID.equals(course.getCourseID())) {
 					System.out.print("New max amount of students: ");
 					int newMax = input2.nextInt();
@@ -117,18 +120,24 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 					course.setMaxStudents(newMax);
 					break;
 				}
+
+				// If choice is 2 and the course ID matches, prompt for new course instructor
 				if (choice == 2 && courseID.equals(course.getCourseID())) {
 					System.out.println("New course instructor: ");
 					String newInstructor = input2.nextLine();
 					course.setCourseInstructor(newInstructor);
 					break;
 				}
+
+				// If choice is 3 and the course ID matches, prompt for new section number
 				if (choice == 3 && courseID.equals(course.getCourseID())) {
 					System.out.println("New section number: ");
 					int newSection = input2.nextInt();
 					course.setCourseSection(newSection);
 					break;
 				}
+
+				// If choice is 4 and the course ID matches, prompt for new course location
 				if (choice == 4 && courseID.equals(course.getCourseID())) {
 					System.out.println("New course location: ");
 					String newLocation = input2.nextLine();
