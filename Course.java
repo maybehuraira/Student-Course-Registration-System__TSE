@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
 
-
+//class implements the Serializable interface, allowing objects of this class to be serialized and deserialized
 public class Course implements Serializable {
 	
 	public Course() {
@@ -27,7 +27,11 @@ public class Course implements Serializable {
 	public  String courseLocation;
 	public ArrayList<String> studentCourses;
 	
-	
+		
+	/**
+	 * Represents a course with properties such as name, ID, capacity, enrollment,
+	 * student list, instructor, section, and location.
+	 */
 	public Course(String courseName, String courseID, Integer maxStudents, Integer enrolledStudents, 
 			ArrayList<String> students, String courseInstructor, Integer courseSection, String courseLocation) {
 		this.courseName = courseName;

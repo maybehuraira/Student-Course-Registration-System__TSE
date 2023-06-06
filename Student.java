@@ -7,6 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * This class represents a student in the CRS system.
+ * It extends the User class and implements the StudentInterface and Serializable interfaces.
+ * The Student class contains methods to view, register, and withdraw from courses.
+ */
+
 public class Student extends User implements StudentInterface, java.io.Serializable {
 	
 	public static ArrayList<String> registeredCourses = new ArrayList<String>();

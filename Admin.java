@@ -16,7 +16,13 @@ import java.io.PrintWriter;
 
 public class Admin extends User implements AdminInterface, java.io.Serializable {
 
-	
+	/**
+	 * Constructor for Admin class
+	 * @param fn First name of the admin
+	 * @param ln Last name of the admin
+	 * @param usn Username of the admin
+	 * @param psw Password of the admin
+	 */
 	public Admin(String fn, String ln, String usn, String psw) {
 		String firstName = fn;
 		String lastName = ln;
@@ -26,7 +32,11 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 	
 	//Instantiate course object from default constructor
 	
-	//WORKS
+	/**
+ 	* Create a new course
+ 	* @return Success message indicating the course is added
+ 	* @throws IOException if an I/O error occurs
+ 	*/
 	public static String createCourses() throws IOException {
 		
 		Scanner input = new Scanner(System.in);
@@ -58,7 +68,7 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		return "Course added.";
 	}
 	
-	//WORKS
+	//Allows admin to delete a course
 	public static void deleteCourse() {
 		Course course = new Course();
 		//Ask user for courseID
@@ -74,8 +84,11 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 			}
 		}
 	}
-	
-	//WORKS
+		
+	/**
+	 * Edit a course
+	 * @throws IOException if an I/O error occurs
+	 */
 	public static void editCourse() throws IOException {
 		Course course = new Course();
 		Scanner input = new Scanner(System.in);
@@ -129,7 +142,10 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		System.out.println(crsMain.courseArrayList.toString());		
 	}
 
-	//WORKS
+	/**
+	 * Display course information
+	 * @throws IOException if an I/O error occurs
+	 */
 	public static void displayInfo() throws IOException {
 		Course course = new Course(); 
 		Scanner input = new Scanner(System.in);
@@ -145,7 +161,7 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		}
 	}
 	
-	//WORKS
+	//Register a new student
 	public static void registerStudent() {
 		Scanner input = new Scanner(System.in);
 		
@@ -165,15 +181,21 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 	//ArrayList of students
 	//public static ArrayList<Student> students = new ArrayList<>();
 	
-	
-	//WORKS
+	//view avaliable courses
 	public static void viewCourses() {
 
 			System.out.println(crsMain.courseArrayList.toString());
 		
 	}
 
+	//intializing null fullCourseID value
 	public static String fullCourseID = null;
+	
+	/**
+	 * View the courses that are full (reached max students)
+	 * @return Full course IDs
+	 * @throws IOException if an I/O error occurs
+	 */
 	public static String viewFullCourses() throws IOException {
 		//If currentStudents == maxStudents
 		//		display courseIDs
@@ -188,7 +210,7 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		}
 		return fullCourseID;
 	}
-	//WORKS
+	//add full courses to a file and throw exception if file not present
 	public static void addCourseToFile() throws FileNotFoundException {
 		//Create new file of full courses
 		Course course = new Course();
@@ -204,7 +226,7 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 			
 		}
 	}
-	//WORKS
+	//Display the names of the students enrolled in a course
 	public static void studentNamesInCourse() {
 		//Print out list of names (index 4 of course array list)
 		//Ask user for courseID 
@@ -222,6 +244,7 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		}
 	}
 	
+	//Display courses taken by student
 	public static void coursesPerStudent() {
 		Course course = new Course();
 		//Search first name, last name
@@ -242,6 +265,7 @@ public class Admin extends User implements AdminInterface, java.io.Serializable 
 		
 	}
 
+	//Sort courses based on the number of enrolled students in descending order
 	public static void sortMostStudentsPerClass() {
 		Course course = new Course();
 		ArrayList<Integer> sortedArrayList = new ArrayList<Integer>();
